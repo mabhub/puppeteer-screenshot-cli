@@ -1,0 +1,14 @@
+{
+  "name": "puppeteer-screenshotter",
+  "version": "1.0.0",
+  "description": "Automation of DOM element screenshots with Puppeteer",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "command-line-args": "~5.0.2",
+    "command-line-usage": "~4.1.0",
+    "puppeteer": "~1.0.0"
+  }
+}
