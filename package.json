@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Automation of DOM element screenshots with Puppeteer",
   "main": "index.js",
+  "bin": {
+    "puppeteer-screenshotter": "./index.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
