@@ -18,5 +18,8 @@
     "command-line-args": "~5.0.2",
     "command-line-usage": "~4.1.0",
     "puppeteer": "~1.0.0"
+  },
+  "scripts": {
+    "version": "git changelog && git add CHANGELOG.md"
   }
 }
