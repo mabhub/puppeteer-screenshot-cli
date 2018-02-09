@@ -6,8 +6,8 @@
   "bin": {
     "puppeteer-screenshot": "./index.js"
   },
-  "keywords": ["puppeteer", "screenshot"],
-  "author": "",
+  "keywords": ["puppeteer", "screenshot", "cli"],
+  "author": "Benjamin Marguin <npmjs.org@ma-b.com>",
   "license": "ISC",
   "dependencies": {
     "command-line-args": "~5.0.2",
