@@ -1,11 +1,13 @@
-# Puppeteer screenshotter
+# Puppeteer screenshot CLI
 
-Automation of DOM element screenshots with Puppeteer
+Simple wrapper around [Puppeteer](https://github.com/GoogleChrome/puppeteer) to take screenshot from command line.
 
 ## Usage
 
 ```
-node index.js 'http://perdu.com' --selector 'h1'
+npm i [-g] https://github.com/mabhub/puppeteer-screenshot-cli
+
+puppeteer-screenshot 'http://perdu.com' --selector 'h1'
 ```
 
-*See `--help` for more details.*
+*See `puppeteer-screenshot --help` for more options.*

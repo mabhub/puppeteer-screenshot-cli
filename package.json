@@ -1,12 +1,12 @@
 {
-  "name": "puppeteer-screenshotter",
+  "name": "puppeteer-screenshot-cli",
   "version": "1.0.0",
-  "description": "Automation of DOM element screenshots with Puppeteer",
+  "description": "Simple wrapper around Puppeteer to take screenshot from command line",
   "main": "index.js",
   "bin": {
-    "puppeteer-screenshotter": "./index.js"
+    "puppeteer-screenshot": "./index.js"
   },
-  "keywords": [],
+  "keywords": ["puppeteer", "screenshot"],
   "author": "",
   "license": "ISC",
   "dependencies": {
