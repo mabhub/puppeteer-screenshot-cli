@@ -1,5 +1,14 @@
 
-v1.1.0 / 2018-02-09
+1.1.1 / 2018-02-09
+==================
+
+  * Create command for updating changelog when releasing new version
+  * Indicate default viewport in readme file
+  * Change default suggested install source from Github to npm
+  * Define github repository in package.json
+  * Create changelog and rename main readme
+
+1.1.0 / 2018-02-09
 ===================
 
   * Add eslint rules
@@ -7,7 +16,7 @@ v1.1.0 / 2018-02-09
   * Use a constant for EOL char
   * Define language for readme code block
 
-v1.0.0 / 2018-02-09
+1.0.0 / 2018-02-09
 ===================
 
   * Add keywords, author, and signature

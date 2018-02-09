@@ -1,6 +1,6 @@
 {
   "name": "puppeteer-screenshot-cli",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Simple wrapper around Puppeteer to take screenshot from command line",
   "repository": "github:mabhub/puppeteer-screenshot-cli",
   "main": "index.js",
