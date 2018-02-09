@@ -52,10 +52,15 @@ const doCapture = async function ({
   await browser.close();
 };
 
+const usage = getUsage({ header: 'Headless screenshot with Puppeteer', optionList: argsDef, hide: ['headless'] });
+
 if (args.help) {
-  console.log(getUsage({ header: 'Headless screenshot with Puppeteer', optionList: argsDef, hide: ['headless'] }));
+  process.stderr.write(usage);
+  process.exitCode = 1;
 } else if (args.url) {
   doCapture(args);
 } else {
-  console.log('No url provided...');
+  process.stderr.write('No url provided...' + EOL);
+  process.stderr.write(usage);
+  process.exitCode = 1;
 }
