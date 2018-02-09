@@ -4,17 +4,19 @@ const puppeteer       = require('puppeteer');
 const commandLineArgs = require('command-line-args');
 const getUsage        = require('command-line-usage');
 
+const EOL             = '\n';
+
 const argsDef = [
-  { name: 'url',      alias: 'u', type: String,  description: 'Source URL\n', defaultOption: true },
-  { name: 'output',   alias: 'o', type: String,  description: 'Output filename. \n[italic]{Default: screenshot.jpeg}\n' },
-  { name: 'selector', alias: 's', type: String,  description: 'CSS selector of DOM element to capture. \n[italic]{Default: body}\n' },
-  { name: 'type',     alias: 't', type: String,  description: 'Type of output image: png or jpeg. \n[italic]{Default: jpeg}\n' },
-  { name: 'quality',  alias: 'q', type: Number,  description: 'Quality of jpeg file. Only for jpeg. \n[italic]{Default: 90}\n' },
+  { name: 'url',      alias: 'u', type: String,  description: 'Source URL' + EOL, defaultOption: true },
+  { name: 'output',   alias: 'o', type: String,  description: 'Output filename. \n[italic]{Default: screenshot.jpeg}' + EOL },
+  { name: 'selector', alias: 's', type: String,  description: 'CSS selector of DOM element to capture. \n[italic]{Default: body}' + EOL },
+  { name: 'type',     alias: 't', type: String,  description: 'Type of output image: png or jpeg. \n[italic]{Default: jpeg}' + EOL },
+  { name: 'quality',  alias: 'q', type: Number,  description: 'Quality of jpeg file. Only for jpeg. \n[italic]{Default: 90}' + EOL },
   { name: 'width',    alias: 'w', type: Number,  description: 'Viewport width' },
-  { name: 'height',   alias: 'h', type: Number,  description: 'Viewport height\n' },
-  { name: 'fullPage', alias: 'f', type: Boolean, description: '\n' },
+  { name: 'height',   alias: 'h', type: Number,  description: 'Viewport height' + EOL },
+  { name: 'fullPage', alias: 'f', type: Boolean, description: '' + EOL },
   { name: 'headless',             type: Boolean, },
-  { name: 'help',     alias: '?', type: Boolean, description: 'This help' },
+  { name: 'help',     alias: '?', type: Boolean, description: 'This help'  + EOL },
 ];
 
 const args = commandLineArgs(argsDef);
