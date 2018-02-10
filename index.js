@@ -23,11 +23,11 @@ const args = commandLineArgs(argsDef);
 
 const doCapture = async function ({
   url,
+  output,
   selector = 'body',
   width    = 800,
   height   = 600,
   type     = 'jpeg',
-  output   = `screenshot.${type}`,
   quality  = type === 'jpeg' ? 90 : undefined,
   headless = true,
   fullPage = false,
@@ -43,11 +43,15 @@ const doCapture = async function ({
 
   const elementHandle = await page.$(selector);
 
-  await page.screenshot({
+  const picture = await page.screenshot({
     type, quality, fullPage,
     path: output,
     clip: await elementHandle.boundingBox(),
   });
+
+  if (!output) {
+    process.stdout.write(picture);
+  }
 
   await browser.close();
 };
