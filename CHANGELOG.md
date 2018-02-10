@@ -1,4 +1,11 @@
 
+1.2.0 / 2018-02-10
+==================
+
+  * Redirect picture stream to stdout when `--output -` or `-o -`
+  * Redirect picture stream to stdout when no `--output` given
+  * Define minimum required node version to 6.4.0
+
 1.1.1 / 2018-02-09
 ==================
 
