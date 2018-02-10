@@ -43,13 +43,15 @@ const doCapture = async function ({
 
   const elementHandle = await page.$(selector);
 
+  output = output === '-' ? undefined : output;
+
   const picture = await page.screenshot({
     type, quality, fullPage,
     path: output,
     clip: await elementHandle.boundingBox(),
   });
 
-  if (!output || output === '-') {
+  if (!output) {
     process.stdout.write(picture);
   }
 
