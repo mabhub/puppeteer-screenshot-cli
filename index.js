@@ -49,7 +49,7 @@ const doCapture = async function ({
     clip: await elementHandle.boundingBox(),
   });
 
-  if (!output) {
+  if (!output || output === '-') {
     process.stdout.write(picture);
   }
 
