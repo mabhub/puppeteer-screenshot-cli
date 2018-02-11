@@ -46,3 +46,8 @@ puppeteer-screenshot 'http://perdu.com' > perdu.jpg
 
     -?, --help              This help
 ```
+
+## See also
+
+- [puppeteer-trace-cli](https://www.npmjs.com/package/puppeteer-trace-cli)  
+  Simple wrapper around [Puppeteer](https://github.com/GoogleChrome/puppeteer) to trace webpage from command line.
