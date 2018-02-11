@@ -59,7 +59,7 @@ const doCapture = async function ({
 
 
 if (args.help || !args.url) {
-  !args.help && process.stderr.write('No url provided.' + EOL);
+  !args.help && process.stderr.write('No url provided.' + EOL);
   process.stderr.write(usage);
   process.exitCode = 1;
 } else {
