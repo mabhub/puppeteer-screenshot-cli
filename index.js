@@ -1,10 +1,7 @@
 #!/usr/bin/env node
 
-const puppeteer       = require('puppeteer');
-const commandLineArgs = require('command-line-args');
-const getUsage        = require('command-line-usage');
-
-const EOL             = '\n';
+const puppeteer = require('puppeteer');
+const EOL       = '\n';
 
 const argsDef = [
   { name: 'url',      alias: 'u', type: String,  description: 'URL to navigate page to. The url should include scheme, e.g. https://.' + EOL, defaultOption: true },
@@ -19,7 +16,8 @@ const argsDef = [
   { name: 'help',     alias: '?', type: Boolean, description: 'This help'  + EOL },
 ];
 
-const args = commandLineArgs(argsDef);
+const args  = require('command-line-args')(argsDef);
+const usage = require('command-line-usage')({ header: 'Headless screenshot with Puppeteer', optionList: argsDef });
 
 const doCapture = async function ({
   url,
@@ -59,15 +57,11 @@ const doCapture = async function ({
   await browser.close();
 };
 
-const usage = getUsage({ header: 'Headless screenshot with Puppeteer', optionList: argsDef, hide: ['headless'] });
 
-if (args.help) {
+if (args.help || !args.url) {
+  !args.help && process.stderr.write('No url provided.' + EOL);
   process.stderr.write(usage);
   process.exitCode = 1;
-} else if (args.url) {
-  doCapture(args);
 } else {
-  process.stderr.write('No url provided…' + EOL);
-  process.stderr.write(usage);
-  process.exitCode = 1;
+  doCapture(args);
 }
