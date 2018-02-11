@@ -8,12 +8,12 @@ const EOL             = '\n';
 
 const argsDef = [
   { name: 'url',      alias: 'u', type: String,  description: 'Source URL' + EOL, defaultOption: true },
-  { name: 'output',   alias: 'o', type: String,  description: 'Output filename. \n[italic]{Default: screenshot.jpeg}' + EOL },
+  { name: 'output',   alias: 'o', type: String,  description: 'Output filename. \n[italic]{Default: to stdout}' + EOL },
   { name: 'selector', alias: 's', type: String,  description: 'CSS selector of DOM element to capture. \n[italic]{Default: body}' + EOL },
   { name: 'type',     alias: 't', type: String,  description: 'Type of output image: png or jpeg. \n[italic]{Default: jpeg}' + EOL },
   { name: 'quality',  alias: 'q', type: Number,  description: 'Quality of jpeg file. Only for jpeg. \n[italic]{Default: 90}' + EOL },
-  { name: 'width',    alias: 'w', type: Number,  description: 'Viewport width' },
-  { name: 'height',   alias: 'h', type: Number,  description: 'Viewport height' + EOL },
+  { name: 'width',    alias: 'w', type: Number,  description: 'Viewport width \n[italic]{Default: 800}' + EOL },
+  { name: 'height',   alias: 'h', type: Number,  description: 'Viewport height \n[italic]{Default: 600}' + EOL },
   { name: 'fullPage', alias: 'f', type: Boolean, description: '' + EOL },
   { name: 'headless',             type: Boolean, },
   { name: 'help',     alias: '?', type: Boolean, description: 'This help'  + EOL },
@@ -66,7 +66,7 @@ if (args.help) {
 } else if (args.url) {
   doCapture(args);
 } else {
-  process.stderr.write('No url provided...' + EOL);
+  process.stderr.write('No url provided…' + EOL);
   process.stderr.write(usage);
   process.exitCode = 1;
 }
