@@ -1,4 +1,13 @@
 
+1.3.0 / 2018-02-11
+==================
+
+  * Improve main args processing
+  * Unhide `--headless` option in `--help`
+  * Use help texts from Puppeteer
+  * Remove default type & quality settings
+  * Improve `--help` and corresponding texts in readme
+
 1.2.0 / 2018-02-10
 ==================
 
