@@ -1,4 +1,11 @@
 
+1.3.1 / 2018-02-12
+==================
+
+  * Add cross reference to puppeteer-trace-cli
+  * Remove an irregular whitespace
+  * Update readme file to match current `--help` content
+
 1.3.0 / 2018-02-11
 ==================
 
