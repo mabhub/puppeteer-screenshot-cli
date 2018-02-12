@@ -40,15 +40,13 @@ const doCapture = async function ({
 
     await page.waitForSelector(selector, { visible: true });
 
-    const elementHandle = await page.$(selector);
-
     output  = output === '-' ? undefined : output;
     type    = type === 'jpg' ? 'jpeg' : type;
 
     const picture = await page.screenshot({
       type, quality, fullPage,
       path: output,
-      clip: await elementHandle.boundingBox(),
+      clip: !fullPage && await (await page.$(selector)).boundingBox(),
     });
 
     if (!output) {
