@@ -33,25 +33,31 @@ const doCapture = async function ({
   const browser = await puppeteer.launch({headless});
   const page    = await browser.newPage();
 
-  await page.setViewport({ width, height });
+  try {
+    await page.setViewport({ width, height });
 
-  await page.goto(url, { waitUntil: [ 'load', 'networkidle0' ] });
+    await page.goto(url, { waitUntil: [ 'load', 'networkidle0' ] });
 
-  await page.waitForSelector(selector, { visible: true });
+    await page.waitForSelector(selector, { visible: true });
 
-  const elementHandle = await page.$(selector);
+    const elementHandle = await page.$(selector);
 
-  output  = output === '-' ? undefined : output;
-  type    = type === 'jpg' ? 'jpeg' : type;
+    output  = output === '-' ? undefined : output;
+    type    = type === 'jpg' ? 'jpeg' : type;
 
-  const picture = await page.screenshot({
-    type, quality, fullPage,
-    path: output,
-    clip: await elementHandle.boundingBox(),
-  });
+    const picture = await page.screenshot({
+      type, quality, fullPage,
+      path: output,
+      clip: await elementHandle.boundingBox(),
+    });
 
-  if (!output) {
-    process.stdout.write(picture);
+    if (!output) {
+      process.stdout.write(picture);
+    }
+
+  } catch (error) {
+    await browser.close();
+    throw error;
   }
 
   await browser.close();
