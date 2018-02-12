@@ -13,7 +13,7 @@ const argsDef = [
   { name: 'height',   alias: 'h', type: Number,  description: 'Viewport height in pixels \n[italic]{Default: 600}' + EOL },
   { name: 'timeout ',             type: Number,  description: 'Maximum time to wait for in milliseconds. \n[italic]{Default: 30000}' + EOL },
   { name: 'fullPage', alias: 'f', type: Boolean, description: 'When true, takes a screenshot of the full scrollable page. \n[italic]{Defaults: false}.' + EOL },
-  { name: 'headless',             type: Boolean, description: 'Whether to run browser in headless mode. \n[italic]{Default: true}' + EOL},
+  { name: 'noheadless',           type: Boolean, description: 'Allow disabling headless mode. \n[italic]{Default: false}' + EOL},
   { name: 'help',     alias: '?', type: Boolean, description: 'This help'  + EOL },
 ];
 
@@ -25,14 +25,14 @@ const doCapture = async function ({
   output,
   type,
   quality,
+  noheadless,
   selector = 'body',
   width    = 800,
   height   = 600,
   timeout  = 30000,
-  headless = true,
   fullPage = false,
 }) {
-  const browser = await puppeteer.launch({headless});
+  const browser = await puppeteer.launch({ headless: !noheadless });
   const page    = await browser.newPage();
 
   page.setDefaultNavigationTimeout(timeout);
