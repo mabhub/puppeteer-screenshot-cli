@@ -11,6 +11,7 @@ const argsDef = [
   { name: 'quality',  alias: 'q', type: Number,  description: 'The quality of the image, between 0-100. Not applicable to png images.' + EOL },
   { name: 'width',    alias: 'w', type: Number,  description: 'Viewport width in pixels \n[italic]{Default: 800}' + EOL },
   { name: 'height',   alias: 'h', type: Number,  description: 'Viewport height in pixels \n[italic]{Default: 600}' + EOL },
+  { name: 'timeout ',             type: Number,  description: 'Maximum time to wait for in milliseconds. \n[italic]{Default: 30000}' + EOL },
   { name: 'fullPage', alias: 'f', type: Boolean, description: 'When true, takes a screenshot of the full scrollable page. \n[italic]{Defaults: false}.' + EOL },
   { name: 'headless',             type: Boolean, description: 'Whether to run browser in headless mode. \n[italic]{Default: true}' + EOL},
   { name: 'help',     alias: '?', type: Boolean, description: 'This help'  + EOL },
@@ -27,18 +28,21 @@ const doCapture = async function ({
   selector = 'body',
   width    = 800,
   height   = 600,
+  timeout  = 30000,
   headless = true,
   fullPage = false,
 }) {
   const browser = await puppeteer.launch({headless});
   const page    = await browser.newPage();
 
+  page.setDefaultNavigationTimeout(timeout);
+
   try {
     await page.setViewport({ width, height });
 
     await page.goto(url, { waitUntil: [ 'load', 'networkidle0' ] });
 
-    await page.waitForSelector(selector, { visible: true });
+    await page.waitForSelector(selector, { visible: true, timeout });
 
     output  = output === '-' ? undefined : output;
     type    = type === 'jpg' ? 'jpeg' : type;

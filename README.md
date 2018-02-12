@@ -38,6 +38,9 @@ puppeteer-screenshot 'http://perdu.com' > perdu.jpg
     -h, --height number     Viewport height in pixels
                             Default: 600
 
+    --timeout  number       Maximum time to wait for in milliseconds.
+                            Default: 30000
+
     -f, --fullPage          When true, takes a screenshot of the full scrollable page.
                             Defaults: false.
 
