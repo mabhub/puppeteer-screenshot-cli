@@ -1,4 +1,12 @@
 
+1.4.0 / 2018-02-12
+==================
+
+  * Debug `--headless` switch by inverting behavior
+  * Offer a new flag for setting up default timeout duration
+  * Avoid asking Puppeteer to clip element on fullpage capture
+  * Catch errors from any calls to Puppeteer to finally close browser
+
 1.3.1 / 2018-02-12
 ==================
 
