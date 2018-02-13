@@ -1,4 +1,10 @@
 
+1.4.1 / 2018-02-13
+==================
+
+  * Remove extraneous space after `--timeout` flag definition
+  * Return 1 as exit code on any catched exception
+
 1.4.0 / 2018-02-12
 ==================
 
