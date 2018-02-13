@@ -59,6 +59,7 @@ const doCapture = async function ({
 
   } catch (error) {
     await browser.close();
+    process.exitCode = 1;
     throw error;
   }
 
