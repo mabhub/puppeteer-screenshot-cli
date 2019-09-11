@@ -1,4 +1,10 @@
 
+1.4.3 / 2019-09-11
+==================
+
+  * Setup and enforce eslint-config-makina as ESLint ruleset
+  * Upgrade Puppeteer for security concerns
+
 1.4.2 / 2019-01-03
 ==================
 
