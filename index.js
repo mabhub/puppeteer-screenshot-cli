@@ -13,6 +13,7 @@ const argsDef = [
   { name: 'quality',  alias: 'q', type: Number,  description: `The quality of the image, between 0-100. Not applicable to png images.${EOL}` },
   { name: 'width',    alias: 'w', type: Number,  description: `Viewport width in pixels \n[italic]{Default: 800}${EOL}` },
   { name: 'height',   alias: 'h', type: Number,  description: `Viewport height in pixels \n[italic]{Default: 600}${EOL}` },
+  { name: 'useragent',            type: String,  description: `The user agent of the browser \n[italic]{Default: undefined}${EOL}` },
   { name: 'timeout',              type: Number,  description: `Maximum time to wait for in milliseconds. \n[italic]{Default: 30000}${EOL}` },
   { name: 'fullPage', alias: 'f', type: Boolean, description: `When true, takes a screenshot of the full scrollable page. \n[italic]{Defaults: false}.${EOL}` },
   { name: 'noheadless',           type: Boolean, description: `Allow disabling headless mode. \n[italic]{Default: false}${EOL}` },
@@ -32,6 +33,7 @@ const doCapture = async function doCapture ({
   selector = 'body',
   width = 800,
   height = 600,
+  useragent = undefined,
   timeout = 30000,
   fullPage = false,
 }) {
@@ -41,6 +43,10 @@ const doCapture = async function doCapture ({
   page.setDefaultNavigationTimeout(timeout);
 
   try {
+    if (useragent) {
+      await page.setUserAgent(useragent);
+    }
+
     await page.setViewport({ width, height });
 
     await page.goto(url, { waitUntil: ['load', 'networkidle0'] });
