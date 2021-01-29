@@ -1,4 +1,10 @@
 
+1.5.0 / 2021-01-29
+==================
+
+  * Bump lodash, acorn & https-proxy-agent
+  * Add `--useragent` to set user agent
+
 1.4.3 / 2019-09-11
 ==================
 
